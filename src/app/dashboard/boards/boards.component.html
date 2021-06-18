@@ -1,0 +1,23 @@
+<form clrForm>
+    <clr-input-container>
+      <label>Email</label>
+      <input clrInput type="text" name="mailDest" />
+    </clr-input-container>
+    <button class="btn btn-primary" type="submit">Send Invite to the workspace</button>
+  </form>
+
+<div class="projectGrid">
+    <clr-datagrid>
+        <clr-dg-column>Title</clr-dg-column>
+        <clr-dg-column>Created At</clr-dg-column>
+        <clr-dg-column>description</clr-dg-column>
+        <clr-dg-row  *clrDgItems="let project of projectList" [clrDgItem]="project">
+            <clr-dg-action-overflow>
+                <button (click)="deleteProject(project.id)" class="action-item">Delete</button>
+            </clr-dg-action-overflow>
+            <clr-dg-cell>{{project.title}}</clr-dg-cell>
+            <clr-dg-cell>{{project.createdAt | date}}</clr-dg-cell>
+            <clr-dg-cell>{{project.description}}</clr-dg-cell>
+        </clr-dg-row>
+    </clr-datagrid>
+</div>

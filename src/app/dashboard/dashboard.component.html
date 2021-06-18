@@ -1,0 +1,49 @@
+<div class="main">
+  <header class="header-6">
+    <div class="branding">
+        <span class="title">Arco</span>
+    </div>
+    <div class="header-nav">
+      <a class="active nav-link nav-text" (click)="isModalVisible = true">Add a project</a>
+      <a href="javascript://" class="nav-link nav-text">Interactive Analytics</a>
+    </div>
+    <div class="settings">
+      <a (click)="logout()" class="nav-link nav-icon" aria-label="settings">
+        <cds-icon shape="logout"></cds-icon>
+      </a>
+    </div>
+  </header>
+  <nav class="subnav">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard/home" routerLinkActive='true'>Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard/boards" routerLinkActive='true'>My boards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">My teams</a>
+      </li>
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
+
+
+<clr-modal [(clrModalOpen)]="isModalVisible">
+  <h3 class="modal-title">Begin a new adventure</h3>
+  <div class="modal-body">
+    <form [formGroup]="addProjectForm" (ngSubmit)="addProject()">
+      <div class="form-group">
+          <label for="title">Title: </label>
+          <input class="form-control" id="title" type="title" formControlName="title">
+      </div>
+      <div class="form-group">
+          <label for="description">Description: </label>
+          <input class="form-control" id="description" type="description" formControlName="description">
+      </div>
+      <button type="button" class="btn btn-outline" (click)="isModalVisible = false">Cancel</button>
+      <button type="submit" class="btn btn-primary" (click)="isModalVisible = false">Ok</button>
+    </form>
+  </div>
+</clr-modal>

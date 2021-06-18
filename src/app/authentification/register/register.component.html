@@ -1,0 +1,24 @@
+<div class="login-wrapper">
+    <form class="login" [formGroup]="registerForm" (ngSubmit)="registerProcess()">
+      <section class="title">
+        <h3 class="welcome">Create a new account</h3>
+      </section>
+      <div class="login-group">
+        <clr-input-container>
+          <label class="clr-sr-only">Email</label>
+          <input type="email" name="email" clrInput placeholder="Email" formControlName="email"/>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </clr-input-container>
+        <clr-password-container>
+          <label class="clr-sr-only">Password</label>
+          <input type="password" name="password" clrPassword placeholder="Password" formControlName="plainPassword"/>
+          <small id="emailHelp" class="form-text text-muted">... But maybe your password!</small>
+        </clr-password-container>
+        <clr-password-container>
+          <label class="clr-sr-only">Confirm password</label>
+          <input type="password" name="password" clrPassword placeholder="Confirm password"/>
+        </clr-password-container>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </div>
+    </form>
+</div>
